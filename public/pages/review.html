@@ -14,14 +14,15 @@
 <input type="text" class="input-main input-insert bkg-white" placeholder="Project" ng-model="newReview.project">
 <input type="text" class="input-main input-insert bkg-white" placeholder="Link" ng-model="newReview.address">
 <input type="text" class="input-main input-insert bkg-white" placeholder="Review" ng-model="newReview.text">
-<input type="text" class="input-main input-insert bkg-white" placeholder="Rating" ng-model="newReview.rating">
 
 <ul class="inline-list">
-			<li ng-repeat="point in [1,2,3,4,5]">
-				<span class="fa fa-star" ng-show="point<= newReview.rating"></span>
-				<span class="fa fa-star-o" ng-show="point > newReview.rating"></span>
-			</li>
-		</ul>
+	<li ng-repeat="point in [1,2,3,4,5]" ng-click="newReview.rating = point">
+		<span class="fa fa-star" ng-show="point<= newReview.rating"></span>
+		<span class="fa fa-star-o" ng-show="point > newReview.rating"></span>
+	</li>
+</ul>
+
+{{newReview.rating}}
 
 <input type="submit" placeholder="Insert" class="submit-insert" >
 </form>

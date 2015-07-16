@@ -1,13 +1,17 @@
-@import url(//fonts.googleapis.com/css?family=Pacifico);
-@import url(//fonts.googleapis.com/css?family=Oswald:400,300);
-@import url(//fonts.googleapis.com/css?family=Lato:100,300,400,700);
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+@import 'normalize';
+@import 'foundation.min';
+@import url('//fonts.googleapis.com/css?family=Pacifico');
+@import url('//fonts.googleapis.com/css?family=Oswald:400,300');
+@import url('//fonts.googleapis.com/css?family=Lato:100,300,400,700');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
 
 
 
 body{
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 a{
@@ -41,7 +45,21 @@ a{
 
 form.bottom{
 	position: relative;
+	width: 80%;
+	margin: 0 auto;
+
+	ul.inline-list{
+		margin: 20px auto;
+		position: relative;
+		max-width: 280px;
+		min-width: 220px;
+
+		.fa{
+			font-size: 2.5rem;
+		}
+	}
 }
+
 
 .close{
 	position: absolute;
@@ -120,7 +138,7 @@ form.bottom{
 
 .input-main{
 	padding: 50px !important;
-	width: 70% !important;
+	width: 100% !important;
 	font-size: 2rem !important;
 	font-weight: 200 !important;
 	font-family: sans-serif  !important;
@@ -257,7 +275,7 @@ h2{
 	font-size: 2.5rem;
 }
 p{
-	width: 80%;
+	/*width: 80%;*/
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 2rem;
@@ -274,6 +292,10 @@ p small{
 .center{
 	text-align: center;
 	margin-top: .5rem;
+}
+
+.inline-list > li:first-child{
+	margin-left: 0;
 }
 
 .main-title{
@@ -297,7 +319,7 @@ p small{
 	list-style: none;
 	max-height: 200px;
 	overflow: scroll;
-	overflow-x: none;
+	overflow-x: hidden;
 	list-style-position: none;
 	padding-left: 0;
 	margin: 0;
@@ -394,6 +416,7 @@ p small{
 
 
 @media (max-width: 600px){
+
 	html{
 		font-size: 80%;
 	}
@@ -415,17 +438,38 @@ p small{
 
 	.customer-list li{
 		width: 100%;
+		font-size: 1.4rem;
 	}
 
 	.comment-list li{
-	width: 100%;
 	font-size: 2.5rem;
 	}
+
+	.fa-star,
+	.fa-star-o{
+	font-size: 2rem;
+	}
+
+
 	.input-main{
 	width: 100%;
 	}
 	.submit-insert{
 	width: 100%;
+	}
+	.full{
+		overflow: hidden;
+	}
+
+	form.bottom{
+
+		ul.inline-list{
+			margin: 20px auto;
+			position: relative;
+			max-width: 220px;
+			min-width: 220px;
+
+		}
 	}
 }
 
@@ -436,5 +480,16 @@ p small{
 	.input-main{
 		padding: 30px;
 		font-size: 2.5rem;
+	}
+
+	form.bottom{
+
+		ul.inline-list{
+			margin: 20px auto;
+			position: relative;
+			max-width: 220px;
+			min-width: 220px;
+
+		}
 	}
 }
