@@ -6762,18 +6762,12 @@ a {
 }
 
 .nascondi.show .columns .row {
-  padding: 20px;
+  margin-top: 20px;
+  padding: 0;
 }
 
 .nascondi.show .close {
   position: fixed;
-  top: 10px;
-  color: #ccc;
-  right: 10px;
-  font-size: 2rem;
-  font-family: "Lato",sans-serif;
-  font-weight: 300;
-  cursor: pointer;
 }
 
 form.bottom {
@@ -6785,9 +6779,9 @@ form.bottom {
   top: 10px;
   color: #ccc;
   right: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: "Lato",sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -6881,6 +6875,8 @@ form.bottom {
   color: black !important;
   border-bottom: 1px solid #ccc !important;
   display: inline-block !important;
+  position: relative;
+  right: -25px;
 }
 
 .search .customer-list li {
@@ -7000,7 +6996,8 @@ p {
 
 p small {
   font-size: 1.2rem;
-  color: #0E464E;
+  /*color: #0E464E;*/
+  color: white;
 }
 
 .center {
@@ -7117,7 +7114,7 @@ p small {
 .fa-thumbs-up,
 .fa-thumbs-down,
 .fa-lightbulb-o {
-  color: tomato;
+  color: coral;
   font-size: 3rem;
 }
 
