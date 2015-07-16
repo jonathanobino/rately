@@ -6885,7 +6885,7 @@ form.bottom {
 
 .search .submit-border-home {
   /*color: deepskyblue !important;*/
-  background: yellowgreen !important;
+  background: deepskyblue !important;
 }
 
 .search .submit-border-home:hover {
@@ -7026,8 +7026,8 @@ p small {
 .customer-list {
   list-style: none;
   max-height: 200px;
-  min-height: 200px;
   overflow: scroll;
+  overflow-x: none;
   list-style-position: none;
   padding-left: 0;
   margin: 0;
