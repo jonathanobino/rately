@@ -3622,10 +3622,17 @@ a {
 
 .nascondi.show .columns .row {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 0; }
 
 .nascondi.show .close {
   position: fixed; }
+
+.review-head .fa-home {
+  margin-right: 10px;
+  color: white;
+  position: relative;
+  bottom: -4px; }
 
 form.bottom {
   position: relative;
@@ -3971,18 +3978,6 @@ p small {
     width: 100%; }
   .full {
     overflow: hidden; }
-  form.bottom ul.inline-list {
-    margin: 20px auto;
-    position: relative;
-    max-width: 220px;
-    min-width: 220px; } }
-
-@media (min-width: 600px) and (max-width: 800px) {
-  html {
-    font-size: 70%; }
-  .input-main {
-    padding: 30px;
-    font-size: 2.5rem; }
   form.bottom ul.inline-list {
     margin: 20px auto;
     position: relative;

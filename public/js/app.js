@@ -76,7 +76,7 @@
 				console.log(response)
 			});
 		$scope.newReview={
-			rating:0
+			rating:1
 		};
 		$scope.showInsertReview=false;
 
@@ -85,7 +85,7 @@
 			then(function(){
 				$scope.aziendaView.comments.push($scope.newReview);
 				$scope.newReview={
-					rating:0
+					rating:1
 				};
 		    $scope.showInsertReview=false;
 			})
