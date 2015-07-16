@@ -1,0 +1,14 @@
+{
+  "name": "rately",
+  "main": "index.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonathanobino/rately",
+  "description": "rate your customers",
+  "authors": [
+    "Jonathan Obino"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.2"
+  }
+}
