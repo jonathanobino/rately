@@ -1,0 +1,11 @@
+<li>
+		<ul class="inline-list">
+			<li ng-repeat="point in [1,2,3,4,5]">
+				<span class="fa fa-star" ng-show="point<= elem.rating"></span>
+				<span class="fa fa-star-o" ng-show="point > elem.rating"></span>
+			</li>
+		</ul>
+		<p><a ng-href="{{elem.address}}" target="_blank">{{elem.project}}</a></p>
+		<p>{{elem.text}}</p>
+		<hr>
+</li>

@@ -1,0 +1,55 @@
+<div class="full gradient-bkg">
+<a ng-href="#/"><h1 class="main-title" id="title" >Rate My Customer</h1></a>
+<div ng-class="{show: show}" class="nascondi">
+			<div class="close" ng-click="mostra()">&times;</div>
+			<div class="row">
+				<div class="medium-6 columns">
+				<div class="row">
+					<div class="small-12 columns text-center">
+						<span class="fa fa-thumbs-up"></span>
+						&nbsp;
+						<span class="fa fa-thumbs-down"></span>
+					</div>
+				</div>
+					<h1>Why</h1>
+					<p>As a freelance I dont' know how my customers will behave with me, if it's going to be a good collaboration or if he is very a bad client.</p>
+					<p>From this simple necessity I've decided to build this web app where you can rate and review your customer, providing a link to the job you've done, a comment and a rating.</p>
+				</div>
+				<div class="medium-6 columns">
+				<div class="row">
+					<div class="small-12 columns text-center">
+						<span class="fa fa-lightbulb-o"></span>
+					</div>
+				</div>
+					<h1>How</h1>
+					<p>I've decided to provide to you a very simple sistem to rate and review your current, past and future customers. It's very easy: you log in with facebook or with you email and password and then you can review those customers.</p>
+					<p>Since your name would appear you have the responsability on what you'll write.</p>
+				</div>
+			</div>
+		</div>
+	<div class="row">
+		<div class="medium-6 columns medium-centered">
+			
+			<button class="submit-border-home" ng-click="mostra()">What is this</button>
+		</div>
+
+	</div>
+
+</div>
+<div class="row search">
+	<div class="medium-6 columns medium-centered">
+		<div><input type="text" class="input-main" placeholder="Search your customer..." ng-model="nomec" ng-keyup="search(nomec)"> <span class="fa fa-search"></span></div>
+
+		<ul ng-if="nomec.length > 0 " class="customer-list" >
+			<li ng-repeat="azienda in data | filter:nomec">
+			<a ng-href="#view-comment/{{azienda._id}}">{{azienda.name}}
+			{{azienda.address}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row search">
+	<div class="medium-6 columns medium-centered">
+		<a ng-href="#insert" ng-if="nomec.length  > 0 ? false: true "><button class="submit-border-home" >Not Found?</button></a>
+	</div>
+</div>
