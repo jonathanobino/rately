@@ -3626,7 +3626,8 @@ a {
   padding: 0; }
 
 .nascondi.show .close {
-  position: fixed; }
+  position: fixed;
+  z-index: 999; }
 
 .review-head .fa-home {
   margin-right: 10px;
@@ -3654,7 +3655,8 @@ form.bottom {
   font-size: 3rem;
   font-family: "Lato",sans-serif;
   font-weight: 400;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 999; }
 
 .close:hover {
   color: black;
@@ -3938,8 +3940,7 @@ p small {
 
 .full-scroll {
   min-height: 50vh;
-  max-height: 50vh;
-  overflow: scroll; }
+  max-height: 60vh; }
 
 .bkg-white {
   background-color: rgba(255, 255, 255, 0.8); }
@@ -3981,6 +3982,9 @@ p small {
     width: 100%; }
   .full {
     overflow: hidden; }
+  .full-scroll {
+    max-height: 500px;
+    min-height: 300px; }
   form.bottom ul.inline-list {
     margin: 20px auto;
     position: relative;

@@ -42,6 +42,7 @@ a{
 
 .nascondi.show .close{
 	position: fixed;
+	z-index: 999;
 }
 
 .review-head{
@@ -80,6 +81,7 @@ form.bottom{
 	font-family: "Lato",sans-serif;
 	font-weight: 400;
 	cursor: pointer;
+	z-index: 999;
 }
 
 .close:hover{
@@ -409,8 +411,7 @@ p small{
 
 .full-scroll{
 	min-height: 50vh;
-	max-height: 50vh;
-	overflow: scroll;
+	max-height: 60vh;
 }
 
 .bkg-white{
@@ -476,6 +477,11 @@ p small{
 	}
 	.full{
 		overflow: hidden;
+	}
+
+	.full-scroll{
+		max-height: 500px;
+		min-height: 300px;
 	}
 
 	form.bottom{

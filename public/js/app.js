@@ -1,5 +1,5 @@
 (function(){
-	angular.module('RateMyCustomer', ['ngRoute'])
+	angular.module('RateMyCustomer', ['ngRoute','backendcomm','directives'])
 
 	.config(function($routeProvider){
 
@@ -95,43 +95,7 @@
 
 
 	})
-	.service('$back', function($http){
-
-		this.add= function(company){
-
-			$http.post('/api/',company);
-		}
-
-		this.search = function(query){
-			var data = {
-				key:query
-			}
-
-			return $http.post('/api/search/', data);
-
-		}
-
-		this.getCompany = function(id){
-
-			console.log(id);
-
-			if(id == undefined) return [];
-			else return $http.get('/api/'+id);
-		}
-
-		this.addComment = function (comment, company){
-			return $http.post('/api/'+ company, comment);
-		}
-	})
-	.directive("review",function(){
-		return{
-			restrict:"E",
-			templateUrl:"../templates/review.tpl.html",
-			scope:{
-				elem:"="
-			}
-		}
-	})
+	
 
 
 })();
