@@ -1,4 +1,6 @@
 <li>
+
+
 		<ul class="inline-list">
 			<li ng-repeat="point in [1,2,3,4,5]">
 				<span class="fa fa-star" ng-show="point<= elem.rating"></span>
@@ -7,5 +9,6 @@
 		</ul>
 		<p><a ng-href="{{elem.address}}" target="_blank">{{elem.project}}</a></p>
 		<p>{{elem.text}}</p>
+		<p><small class="comment-info">Added the {{elem.dateAdded | date}} <a href="//facebook.com/{{elem.user.id}}" target='_blank'>by {{elem.user.name}}</a></small></p>
 		<hr>
 </li>

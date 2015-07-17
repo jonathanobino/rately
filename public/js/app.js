@@ -1,7 +1,7 @@
 (function(){
-	angular.module('RateMyCustomer', ['ngRoute','backendcomm','directives'])
+	angular.module('RateMyCustomer', ['ngRoute','ezfb','backendcomm','directives'])
 
-	.config(function($routeProvider){
+	.config(function($routeProvider,ezfbProvider){
 
 		$routeProvider
 
@@ -23,7 +23,17 @@
 				controller: 'viewCompany'
 			});
 
+			ezfbProvider.setInitParams({
+				appId:'650646235070285',
+				version:'v2.3'
+			});
+
+
 	})
+	.run(function(ezfb){
+		ezfb.init();
+	})
+
 
 	.controller('home', function($scope,$location,$back){
 		//var url="https://radiant-fire-9839.firebaseio.com/aziende";
@@ -63,13 +73,35 @@
 		 	$location.path("/");
 		 }
 	})
-	.controller("viewCompany",function($scope,$routeParams,$back){
+	.controller("viewCompany",function($scope,$routeParams,$back,ezfb){
 		
-		console.log('viewCompany');
+
+		var user = {};
+		$scope.showInsertReview=false;
+
+		user.update = function(){
+			ezfb.getLoginStatus()
+			.then(function(res){
+				console.log(res);
+				if(res.status == "connected")
+					return ezfb.api('/me');
+				else{
+					$scope.loggedIn = false;
+				}
+			})
+			.then(function(me){
+				console.log(me);
+				if(me == undefined) $scope.loggedIn = false;
+				else $scope.loggedIn = true;
+				$scope.userData = me;
+			})
+		};
+
+		user.update();
+
+
 
 		$scope.params = $routeParams;
-		//var url="https://radiant-fire-9839.firebaseio.com/aziende";
-		//var ref= new Firebase(url+"/"+$scope.params.item);
 		$back.getCompany($scope.params.id).
 			then(function(response){
 				$scope.aziendaView = response.data;
@@ -78,9 +110,14 @@
 		$scope.newReview={
 			rating:1
 		};
-		$scope.showInsertReview=false;
+
+		
 
 		$scope.insertReview = function(){
+
+			$scope.newReview.user = $scope.userData;
+			$scope.newReview.dateAdded = Date.now();
+
 			$back.addComment($scope.newReview,$scope.params.id).
 			then(function(){
 				$scope.aziendaView.comments.push($scope.newReview);
@@ -91,6 +128,25 @@
 			})
 		 	
 		};
+
+		$scope.login= function(){
+			ezfb.login(null,{scope:"email,public_profile"}).
+			then(function(res){
+				user.update();
+			})
+			
+		};
+
+		$scope.logout= function(){
+			ezfb.logout().
+			then(function(data){
+				user.update();
+			})
+		}
+
+
+
+
 
 
 
