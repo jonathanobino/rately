@@ -201,6 +201,10 @@ form.bottom{
 	padding-top: 50px;
 }
 
+.row.search{
+	min-height: 300px;
+}
+
 input:focus{
 	outline: none !important;
 }
@@ -352,6 +356,9 @@ p small{
 	padding-top:40px;
 }
 
+// angular animate
+
+
 .comment-list{
 	list-style: none;
 	list-style-position: none;
@@ -457,7 +464,7 @@ p small{
 
 	.fa-star,
 	.fa-star-o{
-	font-size: 2rem;
+	font-size: 1.5rem;
 	}
 
 
@@ -479,6 +486,13 @@ p small{
 			max-width: 220px;
 			min-width: 220px;
 
+		}
+	}
+
+	.review-head{
+		.fa{
+			bottom:-2px;
+			font-size:1.5rem;
 		}
 	}
 }

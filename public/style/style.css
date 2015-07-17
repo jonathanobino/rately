@@ -3760,6 +3760,9 @@ form.bottom {
 .row.search:first-of-type {
   padding-top: 50px; }
 
+.row.search {
+  min-height: 300px; }
+
 input:focus {
   outline: none !important; }
 
@@ -3971,7 +3974,7 @@ p small {
     font-size: 2.5rem; }
   .fa-star,
   .fa-star-o {
-    font-size: 2rem; }
+    font-size: 1.5rem; }
   .input-main {
     width: 100%; }
   .submit-insert {
@@ -3982,4 +3985,7 @@ p small {
     margin: 20px auto;
     position: relative;
     max-width: 220px;
-    min-width: 220px; } }
+    min-width: 220px; }
+  .review-head .fa {
+    bottom: -2px;
+    font-size: 1.5rem; } }

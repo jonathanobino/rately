@@ -1,5 +1,5 @@
 (function(){
-	angular.module('RateMyCustomer', ["ngRoute"])
+	angular.module('RateMyCustomer', ['ngRoute'])
 
 	.config(function($routeProvider){
 
