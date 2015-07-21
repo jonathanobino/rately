@@ -3610,6 +3610,7 @@ a {
 .gradient-bkg {
   background-size: cover;
   background: -webkit-linear-gradient(right top, coral, royalblue);
+  background: linear-gradient(right top, coral, royalblue);
   margin-top: -1px;
   padding-top: 1px; }
 
@@ -3629,11 +3630,19 @@ a {
   position: fixed;
   z-index: 999; }
 
+.inline-buttons .submit-border {
+  max-width: 50%;
+  min-width: 50%; }
+
 .review-head .fa-home {
   margin-right: 10px;
   color: white;
   position: relative;
   bottom: -4px; }
+
+form .submit-border {
+  min-width: 40%;
+  max-width: 50%; }
 
 form.bottom {
   position: relative;
@@ -3657,10 +3666,9 @@ form.bottom {
   font-weight: 400;
   cursor: pointer;
   z-index: 999; }
-
-.close:hover {
-  color: black;
-  border-color: black; }
+  .close:hover {
+    color: black;
+    border-color: black; }
 
 .nascondi.show .row {
   padding: 50px 0;
@@ -3679,32 +3687,6 @@ form.bottom {
   background-color: white;
   z-index: 999; }
 
-/*@-webkit-keyframes changebkg 
-	{ 
-	25% {background:yellow;} 
-	50%{background: blue;} 
-	75%{background:darkblue;} 
-	to { background: red; }  }
-	   
-    @-moz-keyframes   changebkg 
-	   { 
-	   25% {background:yellow;} 
-	   50%{background: blue;} 
-	   75%{background:darkblue;} 
-	   to { background: red; }  }
-    @-o-keyframes   changebkg 
-	   { 
-	   25% {background:yellow;} 
-	   50%{background: blue;} 
-	   75%{background:darkblue;} 
-	   to { background: red; }  }
-    @keyframes   changebkg 
-        { 
-       25% {background:yellow;} 
-       50%{background: blue;} 
-       75%{background:darkblue;} 
-       to { background: red; }  
-       }*/
 .full {
   width: 100vw;
   min-height: 60vh;
@@ -3955,7 +3937,8 @@ p small {
 
 .fa-thumbs-up,
 .fa-thumbs-down,
-.fa-lightbulb-o {
+.fa-lightbulb-o,
+.fa-exclamation-triangle {
   color: coral;
   font-size: 3rem; }
 

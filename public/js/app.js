@@ -78,6 +78,7 @@
 
 		var user = {};
 		$scope.showInsertReview=false;
+		$scope.loggedIn = false;
 
 		user.update = function(){
 			ezfb.getLoginStatus()
@@ -130,7 +131,7 @@
 		};
 
 		$scope.login= function(){
-			ezfb.login(null,{scope:"email,public_profile"}).
+			ezfb.login(null,{scope:"public_profile"}).
 			then(function(res){
 				user.update();
 			})

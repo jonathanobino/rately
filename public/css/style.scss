@@ -20,9 +20,10 @@ a{
 	font-weight: 300;
 	color: seagreen ;
 }
+
 .gradient-bkg{
 	background-size: cover;
-	background: -webkit-linear-gradient(right top, coral, royalblue);
+	background: linear-gradient(right top, coral, royalblue);
 	margin-top: -1px;
 	padding-top: 1px;
 }
@@ -45,6 +46,14 @@ a{
 	z-index: 999;
 }
 
+.inline-buttons{
+	.submit-border{
+		max-width: 50%;
+		min-width: 50%;
+	}
+}
+
+
 .review-head{
 	.fa-home{
 		margin-right: 10px;
@@ -54,22 +63,30 @@ a{
 	}
 }
 
-form.bottom{
-	position: relative;
-	width: 80%;
-	margin: 0 auto;
+form{
+	.submit-border{
+		min-width: 40%;
+		max-width: 50%;
+	}
 
-	ul.inline-list{
-		margin: 20px auto;
+	&.bottom{
 		position: relative;
-		max-width: 280px;
-		min-width: 220px;
+		width: 80%;
+		margin: 0 auto;
 
-		.fa{
-			font-size: 2.5rem;
+		ul.inline-list{
+			margin: 20px auto;
+			position: relative;
+			max-width: 280px;
+			min-width: 220px;
+
+			.fa{
+				font-size: 2.5rem;
+			}
 		}
 	}
 }
+
 
 
 .close{
@@ -82,12 +99,13 @@ form.bottom{
 	font-weight: 400;
 	cursor: pointer;
 	z-index: 999;
+
+	&:hover{
+		color:black;
+		border-color: black;
+	}
 }
 
-.close:hover{
-	color:black;
-	border-color: black;
-}
 
 .nascondi.show .row{
 	padding: 50px 0;
@@ -108,34 +126,6 @@ form.bottom{
 	background-color: rgba(255, 255, 255, 1);
 	z-index: 999;
 }
-
-
-/*@-webkit-keyframes changebkg 
-	{ 
-	25% {background:yellow;} 
-	50%{background: blue;} 
-	75%{background:darkblue;} 
-	to { background: red; }  }
-	   
-    @-moz-keyframes   changebkg 
-	   { 
-	   25% {background:yellow;} 
-	   50%{background: blue;} 
-	   75%{background:darkblue;} 
-	   to { background: red; }  }
-    @-o-keyframes   changebkg 
-	   { 
-	   25% {background:yellow;} 
-	   50%{background: blue;} 
-	   75%{background:darkblue;} 
-	   to { background: red; }  }
-    @keyframes   changebkg 
-        { 
-       25% {background:yellow;} 
-       50%{background: blue;} 
-       75%{background:darkblue;} 
-       to { background: red; }  
-       }*/
 
 .full{
 	width: 100vw;
@@ -435,7 +425,8 @@ p small{
 
 .fa-thumbs-up,
 .fa-thumbs-down,
-.fa-lightbulb-o{
+.fa-lightbulb-o,
+.fa-exclamation-triangle{
 	color: coral;
 	font-size: 3rem;
 }
