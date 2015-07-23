@@ -63,6 +63,39 @@ a{
 	}
 }
 
+.review{
+	position: relative;
+	.report{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: .8rem;
+		background: deepskyblue;
+		color: white;
+		padding: 3px 10px;
+		border-radius:10px;
+		border: 2px solid white;
+		transition: all .5s;
+
+		&:hover{
+			color: deepskyblue;
+			background: white;
+			border: 2px solid deepskyblue;
+		}
+
+		// &.ng-hide-add-active,
+		// &.ng-hide-add{
+		// 	opacity: 1;
+		// }
+
+		// &.ng-hide{
+		// 	opacity: 0;
+		// }
+	}
+
+
+}
+
 form{
 	.submit-border{
 		min-width: 40%;
@@ -294,6 +327,11 @@ p small{
 	/*color: #0E464E;*/
 	color: white;
 
+	.nascondi &{
+		color: #ccc;
+		font-size: .9rem;
+	}
+
 	&.comment-info{
 		color: #ccc;
 		font-size: .8rem;
@@ -372,7 +410,7 @@ p small{
 
 
 
-.comment-list > .ng-scope > li{
+.comment-list  > li{
 	width: 70%;
 	background-color: rgba(255,255,255,0.5);
 	font-size: 2rem;

@@ -1,4 +1,5 @@
 var Company = require('../models/company');
+var Report = require('../models/report');
 var mongoose = require('mongoose');
 
 var api = {};
@@ -41,6 +42,19 @@ api.comment = function(req,res){
 		});
 	})
 
+	// Company.findOne({_id:req.params.id}).
+	// exec(function(err,cmp){
+	// 	console.log('query exeecuted',cmp);
+	// 	rev = new Review(req.body);
+	// 	console.log(rev);
+	// 	cmp.comments.push(rev);
+	// 	rev.save();
+	// 	cmp.save(function(err,response){
+	// 		if(err) res.send(err);
+	// 		else	res.send(response);
+	// 	})
+	// })
+
 }
 api.insert = function(req,res){
 
@@ -61,6 +75,7 @@ api.search = function (req,res) {
 	console.log(q);
 	Company.find({name:q})
 	.limit(10)
+	.select('name address')
 	.exec(function(err,response)
 		{
 			res.send(response);
@@ -69,8 +84,29 @@ api.search = function (req,res) {
 	else{
 		res.send({});
 	}
+}
 
 
+api.report = function(req,res){
+
+	console.log(req.body);
+
+	var comment_id = req.body.id;
+
+	Company.findOne({"comments._id":comment_id})
+	.select('comments')
+	.exec(function(err,response){
+		if(err) res.send(err);
+		else{
+			var selected = response.comments.id(comment_id);
+			var rep = new Report(selected)
+			rep.by = req.body.by;
+			rep.save(function(err,response){
+				if(err) res.send(err);
+				else res.send(response)
+			})
+		}
+	})
 
 }
 

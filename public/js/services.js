@@ -27,5 +27,15 @@ services.service('$back', function($http){
 		this.addComment = function (comment, company){
 			return $http.post('/api/'+ company, comment);
 		}
+
+		this.report = function(id,user){
+
+			var body = {
+				id:id,
+				by: user
+			}
+
+			return $http.post('/api/report',body);
+		}
 	});
 

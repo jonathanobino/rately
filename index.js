@@ -37,11 +37,11 @@ app.get('/api/:id', api.getId);
 
 app.post('/api/search', api.search);
 
+app.post('/api/report',api.report);
+
 app.post('/api/:id', api.comment);
 
 app.post('/api', api.insert);
-
-
 
 
 var server = app.listen(app.get('port'), function () {

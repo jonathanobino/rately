@@ -100,7 +100,12 @@
 
 		user.update();
 
-
+		$scope.rep = function(id){
+			console.log('report', id);
+			$back.report(id,$scope.userData).then(function(data){
+				console.log('reported', data);
+			});
+		}
 
 		$scope.params = $routeParams;
 		$back.getCompany($scope.params.id).
@@ -144,13 +149,6 @@
 				user.update();
 			})
 		}
-
-
-
-
-
-
-
 	})
 	
 

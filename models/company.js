@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Review = require('./comment');
 var Schema = mongoose.Schema;
 
  
@@ -14,6 +15,7 @@ var company = new Schema({
     	dateAdded: {type: Date, default: Date.now},
     	user: {name:String, id:String}
     }]
+
 
 
 });

@@ -5,7 +5,7 @@
 </div>
 <section class="comment-section">
 <ul class="comment-list no-scroll">
-	<review ng-repeat="recensione in aziendaView.comments" elem="recensione"></review>
+	<li ng-repeat="recensione in aziendaView.comments"><review  rev="recensione" report="rep(value)"></review></li>
 </ul>
 
 <div class="inline-buttons">

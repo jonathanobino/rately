@@ -3640,6 +3640,25 @@ a {
   position: relative;
   bottom: -4px; }
 
+.review {
+  position: relative; }
+  .review .report {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: .8rem;
+    background: deepskyblue;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    -webkit-transition: all 0.5s;
+            transition: all 0.5s; }
+    .review .report:hover {
+      color: deepskyblue;
+      background: white;
+      border: 2px solid deepskyblue; }
+
 form .submit-border {
   min-width: 40%;
   max-width: 50%; }
@@ -3833,6 +3852,9 @@ p small {
   font-size: 1.2rem;
   /*color: #0E464E;*/
   color: white; }
+  .nascondi p small {
+    color: #ccc;
+    font-size: .9rem; }
   p small.comment-info {
     color: #ccc;
     font-size: .8rem;
@@ -3893,7 +3915,7 @@ p small {
 .comment-list p {
   font-size: 1.2rem; }
 
-.comment-list > .ng-scope > li {
+.comment-list > li {
   width: 70%;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 2rem;
