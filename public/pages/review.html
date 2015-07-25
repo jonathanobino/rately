@@ -19,12 +19,14 @@
 <input type="text" class="input-main input-insert bkg-white" placeholder="Link" ng-model="newReview.address">
 <input type="text" class="input-main input-insert bkg-white" placeholder="Review" ng-model="newReview.text">
 
-<ul class="inline-list">
+<!-- <ul class="inline-list">
 	<li ng-repeat="point in [1,2,3,4,5]" ng-click="newReview.rating = point">
 		<span class="fa fa-star" ng-show="point<= newReview.rating"></span>
 		<span class="fa fa-star-o" ng-show="point > newReview.rating"></span>
 	</li>
-</ul>
+</ul> -->
+
+<stars ng-model="newReview.rating"></stars>
 
 
 <input type="submit" placeholder="Insert" class="submit-border" >
