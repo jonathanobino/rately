@@ -1,5 +1,5 @@
 <div class="full gradient-bkg">
-<a ng-href="#/"><h1 class="main-title" id="title" >Rate My Customer</h1></a>
+<a ui-sref="home"><h1 class="main-title" id="title" >Rate My Customer</h1></a>
 <div ng-class="{show: show}" class="nascondi">
 			<div class="close" ng-click="mostra()">&times;</div>
 			<div class="row">
@@ -56,14 +56,14 @@
 
 		<ul ng-if="nomec.length > 0 " class="customer-list" >
 			<li ng-repeat="azienda in data | filter:nomec">
-			<a ng-href="#view-comment/{{azienda._id}}">{{azienda.name}}
+			<a ui-sref="view({id:azienda._id})">{{azienda.name}}
 			{{azienda.address}}</a>
 			</li>
 		</ul>
 	</div>
 	<div class="row">
 	<div class="medium-6 columns medium-centered">
-		<a ng-href="#insert" ng-show="nomec.length  > 0 ? false: true "><button class="submit-border-home" >Not Found?</button></a>
+		<a ui-sref="insert" ng-show="nomec.length  > 0 ? false: true "><button class="submit-border-home" >Not Found?</button></a>
 	</div>
 </div>
 </div>

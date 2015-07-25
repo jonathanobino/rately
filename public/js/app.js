@@ -1,32 +1,33 @@
 (function(){
-	angular.module('RateMyCustomer', ['ngRoute','ezfb','backendcomm','directives'])
+	angular.module('RateMyCustomer', ['ui.router','ezfb','backendcomm','directives'])
 
-	.config(function($routeProvider,ezfbProvider){
+	.config(function($stateProvider,ezfbProvider){
 
-		$routeProvider
 
-			// route for the home page
-			.when('/', {
+		$stateProvider
+
+		.state('home', {
+				url:'/',
 				templateUrl : 'pages/default.html',
 				controller: 'home'
 			})
+		.state('view',{
+			url:'/view/:id',
+			templateUrl : 'pages/review.html',
+			controller: 'viewCompany'
+		})
+		.state('insert',{
+			url:'/insert',
+			templateUrl : 'pages/insert.html',
+			controller: 'insertNew'
 
-			// route for the insert page
-			.when('/insert', {
-				templateUrl : 'pages/insert.html',
-				controller: 'insertNew'
-			})
+		});
 
-			// route for the view & comment page
-			.when('/view-comment/:id', {
-				templateUrl : 'pages/review.html',
-				controller: 'viewCompany'
-			});
 
-			ezfbProvider.setInitParams({
-				appId:'650646235070285',
-				version:'v2.3'
-			});
+		ezfbProvider.setInitParams({
+			appId:'650646235070285',
+			version:'v2.3'
+		});
 
 
 	})
@@ -35,9 +36,8 @@
 	})
 
 
-	.controller('home', function($scope,$location,$back){
-		//var url="https://radiant-fire-9839.firebaseio.com/aziende";
-		//var ref= new Firebase(url);
+	.controller('home', function($scope,$back){
+
 		 $scope.show = false;
 		 $scope.notfound=false;
 		 $scope.search = function(query){
@@ -64,17 +64,19 @@
 		 
 		
 	})
-	.controller('insertNew',function($scope,$back,$location){
+
+	.controller('insertNew',function($scope,$back,$state){
+
 		$scope.newCompany={};
  		$scope.insertCompany=function(){
 		 	$scope.newCompany.recensioni=[];
 		 	$back.add($scope.newCompany);
 		 	$scope.newCompany={};
-		 	$location.path("/");
+		 	$state.go('home');
 		 }
 	})
-	.controller("viewCompany",function($scope,$routeParams,$back,ezfb){
-		
+
+	.controller("viewCompany",function($scope,$stateParams,$back,ezfb){
 
 		var user = {};
 		$scope.showInsertReview=false;
@@ -107,7 +109,7 @@
 			});
 		}
 
-		$scope.params = $routeParams;
+		$scope.params = $stateParams;
 		$back.getCompany($scope.params.id).
 			then(function(response){
 				$scope.aziendaView = response.data;
@@ -116,8 +118,6 @@
 		$scope.newReview={
 			rating:1
 		};
-
-		
 
 		$scope.insertReview = function(){
 

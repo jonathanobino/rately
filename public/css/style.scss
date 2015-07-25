@@ -33,19 +33,68 @@ a{
 // }
 
 .nascondi{
-	display: none;
+	position: absolute;
+	top: -1500px;
+	display: hide;
+	min-height: 0vh;
+	max-height: 100vh;
+	opacity: 0;
+	transition: 1s opacity;
+
+	&.show{
+		top: 0px;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		min-height: 100vh;
+		background-color: rgba(255, 255, 255, 1);
+		z-index: 999;
+		opacity: 1;
+		
+
+
+		.row .columns{
+			transition: 1s transform, 1s opacity;
+			transform: translateY(0px);
+			opacity: 1;
+		}
+
+		.close{
+			display: block;
+			position: fixed;
+			z-index: 999;
+		}
+	}
+
+	.row{
+		padding: 50px 0;
+		max-width: 70rem;
+		.columns{
+			transform: translateY(50px);
+			opacity: 0;
+			
+		}
+	}
+
+	.close{
+		display: none;
+	}
+
+	.columns .row{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	
+
+	p{
+		font-size: 1.2rem;
+	}
 }
 
-.nascondi.show .columns .row{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 0;
-}
-
-.nascondi.show .close{
-	position: fixed;
-	z-index: 999;
-}
 
 .inline-buttons{
 	.submit-border{
@@ -141,25 +190,7 @@ form{
 }
 
 
-.nascondi.show .row{
-	padding: 50px 0;
-	max-width: 70rem;
-}
 
-.nascondi p{
-	font-size: 1.2rem;
-}
-
-.nascondi.show{
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	min-height: 100vh;
-	background-color: rgba(255, 255, 255, 1);
-	z-index: 999;
-}
 
 .full{
 	width: 100vw;
