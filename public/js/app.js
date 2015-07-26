@@ -1,7 +1,7 @@
 (function(){
 	angular.module('RateMyCustomer', ['ui.router','ezfb','backendcomm','directives'])
 
-	.config(function($stateProvider,ezfbProvider){
+	.config(function($stateProvider,ezfbProvider,$urlRouterProvider){
 
 
 		$stateProvider
@@ -22,6 +22,8 @@
 			controller: 'insertNew'
 
 		});
+
+		$urlRouterProvider.otherwise('/');
 
 
 		ezfbProvider.setInitParams({
