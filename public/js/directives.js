@@ -6,7 +6,8 @@ directives.directive("review",function(){
 			templateUrl:"../templates/review.tpl.html",
 			scope:{
 				rev:"=",
-				report:"&"
+				report:"&",
+				visible:"="
 			},
 			link: function(scope,elem,attr){
 
@@ -23,8 +24,8 @@ directives.directive("review",function(){
 				elem.on('mouseenter',function(){
 					scope.$apply(function(){
 						//disabled temporary
-						// scope.hover = true;
-						scope.hover = false;
+						scope.hover = true;
+						// scope.hover = false;
 					});
 				});
 

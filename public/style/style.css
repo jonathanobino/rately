@@ -3685,7 +3685,10 @@ a {
     border-radius: 10px;
     border: 2px solid white;
     -webkit-transition: all 0.5s;
-            transition: all 0.5s; }
+            transition: all 0.5s;
+    opacity: 0; }
+    .review .report.visibile {
+      opacity: 1; }
     .review .report:hover {
       color: deepskyblue;
       background: white;
@@ -3730,6 +3733,9 @@ form.bottom {
   margin-top: -1px;
   padding-top: 1px;
   overflow-x: hidden; }
+  .full.insert {
+    min-height: 40vh;
+    margin-bottom: 40px; }
 
 .input-main {
   padding: 50px !important;
@@ -3779,7 +3785,7 @@ form.bottom {
   padding-top: 50px; }
 
 .row.search {
-  min-height: 300px; }
+  min-height: 38vh; }
 
 input:focus {
   outline: none !important; }

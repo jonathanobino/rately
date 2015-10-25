@@ -5,12 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var config = require('./config/config');
 
-// console.log(config)
-
 var dbUrl = config.base + config.user+":"+config.psw+config.uri;
 
-
-//app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.set("port",(process.env.PORT || 5000));

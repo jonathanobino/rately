@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "dev":"nodemon index.js"
   },
   "author": "Jonathan Obino",
   "license": "ISC",

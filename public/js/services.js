@@ -28,10 +28,10 @@ services.service('$back', function($http){
 			return $http.post('/api/'+ company, comment);
 		}
 
-		this.report = function(id,user){
+		this.report = function(commentId,companyId,user){
 
 			var body = {
-				id:id,
+				id:commentId,
 				by: user
 			}
 

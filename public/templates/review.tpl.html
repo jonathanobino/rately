@@ -1,11 +1,5 @@
 		<div class="review">
-		<div class="report" ng-show="hover" ng-click="click()">report</div>
-		<!-- <ul class="inline-list">
-			<li ng-repeat="point in [1,2,3,4,5]">
-				<span class="fa fa-star" ng-show="point<= rev.rating"></span>
-				<span class="fa fa-star-o" ng-show="point > rev.rating"></span>
-			</li>
-		</ul> -->
+		<div class="report" ng-if="visible"ng-class="{'visibile':hover}" ng-click="click()">report</div>
 		<stars points={{rev.rating}}></stars>
 		<p><a ng-href="{{rev.address}}" target="_blank">{{rev.project}}</a></p>
 		<p>{{rev.text}}</p>

@@ -3,12 +3,6 @@ var prefixer = require('gulp-autoprefixer');
 var scss = require('gulp-sass');
 var conc_css = require('gulp-concat-css');
 
-
-
-gulp.task('hello_world', function(){
-	console.log("hello world");
-});
-
 gulp.task('css', function(){
 	return gulp.src('./public/css/*.css')
 	.pipe(prefixer())

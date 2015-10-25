@@ -126,6 +126,10 @@ a{
 		border-radius:10px;
 		border: 2px solid white;
 		transition: all .5s;
+		opacity: 0;
+		&.visibile{
+			opacity: 1;
+		}
 
 		&:hover{
 			color: deepskyblue;
@@ -201,6 +205,10 @@ form{
 	margin-top: -1px;
 	padding-top: 1px;
 	overflow-x: hidden;
+	&.insert{
+		min-height: 40vh;
+		margin-bottom: 40px;
+	}
 }
 
 .input-main{
@@ -259,7 +267,8 @@ form{
 }
 
 .row.search{
-	min-height: 300px;
+	// min-height: 300px;
+	min-height: 38vh;
 }
 
 input:focus{
