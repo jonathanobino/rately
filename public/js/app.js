@@ -105,7 +105,7 @@
 		user.update();
 
 		$scope.rep = function(comment_id){
-			$back.report(comment_id,company_id,$scope.userData).then(function(data){
+			$back.report(comment_id,'',$scope.userData).then(function(data){
 				console.log('reported', data);
 			});
 		}
