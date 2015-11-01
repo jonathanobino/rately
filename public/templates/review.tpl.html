@@ -1,8 +1,8 @@
-		<div class="review">
-		<div class="report" ng-if="visible"ng-class="{'visibile':hover}" ng-click="click()">report</div>
-		<stars points={{rev.rating}}></stars>
-		<p><a ng-href="{{rev.address}}" target="_blank">{{rev.project}}</a></p>
-		<p>{{rev.text}}</p>
-		<p><small class="comment-info">Added the {{rev.dateAdded | date}} <a href="//facebook.com/{{rev.user.id}}" target='_blank'>by {{rev.user.name}}</a></small></p>
-		<hr>
-		</div>
+<div class="review">
+<div class="report" ng-if="visible"ng-class="{'visibile':hover}" ng-click="click()">report</div>
+<stars points={{rev.rating}}></stars>
+<p><a ng-href="{{rev.address}}" target="_blank">{{rev.project}}</a></p>
+<p>{{rev.text}}</p>
+<p><small class="comment-info">Added the {{rev.dateAdded | date}} <a href="//facebook.com/{{rev.user.id}}" target='_blank'>by {{rev.user.name}}</a></small></p>
+<hr>
+</div>

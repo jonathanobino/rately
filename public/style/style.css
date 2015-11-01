@@ -3614,6 +3614,15 @@ a {
   margin-top: -1px;
   padding-top: 1px; }
 
+.map {
+  position: relative;
+  top: -250px;
+  width: 600px;
+  height: 300px;
+  left: calc( 50% - 300px);
+  z-index: 999;
+  border: 3px solid tomato; }
+
 .nascondi {
   position: absolute;
   top: -1500px;
@@ -3671,6 +3680,10 @@ a {
   color: white;
   position: relative;
   bottom: -4px; }
+
+.review-head .centered {
+  width: 170px;
+  margin: 20px auto 0px; }
 
 .review {
   position: relative; }

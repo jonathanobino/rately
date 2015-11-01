@@ -4,39 +4,38 @@ var mongoose = require('mongoose');
 
 var api = {};
 
-var errorHandler = function (err, response){
-	if(err) res.send(err);
-	else	res.send(response);
-}
-
-api.all = function(req,res){
+api.all = (req,res) =>{
 
 	Company.find({})
-	.exec(function(err,cmp){
+	.exec((err,cmp) =>{
 		res.send(cmp);
 	})
 
 }
-api.getId = function(req,res){
-
-	console.log(req.params.id);
+api.getId = (req,res) =>{
 
 	Company.findOne({
 		_id:req.params.id
 	})
-	.exec(function(err,response){
+	.exec((err,response) => {
+		var total = response.comments.reduce((prev,curr) =>{
+			prev += curr.rating;
+			return prev;
+		},0);
+		response = response.toObject();
+		response.media = total / response.comments.length;
 		if(err) res.send(err);
 		else res.send(response);
 	})
 
 }
-api.comment = function(req,res){
+api.comment = (req,res) =>{
 
 	console.log("comment api");
 	Company.findOne({_id:req.params.id}).
-	exec(function(err,cmp){
+	exec((err,cmp) =>{
 		cmp.comments.push(req.body);
-		cmp.save(function (err, response){
+		cmp.save((err, response) => {
 			if(err) res.send(err);
 			else	res.send(response);
 		});
@@ -56,19 +55,19 @@ api.comment = function(req,res){
 	// })
 
 }
-api.insert = function(req,res){
+api.insert = (req,res) => {
 
 	console.log(req.body);
 
 	comp = new Company(req.body)
-			.save(function (err, response){
-				if(err) res.send(err);
+			.save((err, response) => {
+				if(err) res.status(403).send({});
 				else	res.send(response);
 			});
 
 }
 
-api.search = function (req,res) {
+api.search = (req,res) => {
 
 	if(req.body.key != ''){
 	var q = new RegExp(req.body.key , "ig");
@@ -76,33 +75,30 @@ api.search = function (req,res) {
 	Company.find({name:q})
 	.limit(10)
 	.select('name address')
-	.exec(function(err,response)
-		{
-			res.send(response);
+	.exec((err,response)=> {
+			if(err) res.status(403).send({});
+			else	res.send(response);
 		});
 	}
 	else{
-		res.send({});
+		res.status(204).send({});
 	}
 }
 
 
-api.report = function(req,res){
-
-	console.log(req.body);
-
+api.report = (req,res) => {
 	var comment_id = req.body.id;
 
 	Company.findOne({"comments._id":comment_id})
 	.select('comments')
 	.exec(function(err,response){
-		if(err) res.send(err);
-		else{
+		if(err) res.status(500).send({});
+		else {
 			var selected = response.comments.id(comment_id);
-			var rep = new Report(selected)
+			var rep = new Report(selected);
 			rep.by = req.body.by;
-			rep.save(function(err,response){
-				if(err) res.send(err);
+			rep.save((err,response) => {
+				if(err) res.status(500).send({});
 				else res.send(response)
 			})
 		}
