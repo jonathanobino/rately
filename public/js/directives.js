@@ -22,13 +22,9 @@ directives.directive("review",function(){
 					scope.sended = true;
 				}
 
-				
-
 				elem.on('mouseenter',function(){
 					scope.$apply(function(){
-						//disabled temporary
 						if(!scope.sended) scope.hover = true;
-						// scope.hover = false;
 					});
 				});
 
@@ -51,13 +47,8 @@ directives.directive('stars', function(){
 		},
 		link: function(scope,elem,attr){
 			scope.rating = scope.ngModel || scope.points;
-
-			// console.log(scope.points, scope.ngModel,scope.rating);
-			// console.log('typeof:',typeof scope.points)
-
 			if(attr.ngModel){
 				scope.clickable = true;
-
 			}
 			else scope.clickable = false;
 		},
@@ -83,7 +74,7 @@ directives.directive('stars', function(){
 	}
 })
 
-directives.directive('popupMap',function(){
+directives.directive('map',function(){
 	return {
 		restrict:'E',
 		template:"<div class='map'></div>",
@@ -95,18 +86,11 @@ directives.directive('popupMap',function(){
 			var apikey ="AIzaSyBtblMBPjXgPvg_TPkn_ohCYTNRw3DRrio";
 			var indirizzo = '';
 			var finalurl = '';
-			var address = document.getElementById('address');
 			$scope.$watch('address',function(){
 				indirizzo = $scope.address || '' ;
 				if(indirizzo!= '') $scope.showable = true;
-				finalurl= baseurl+apikey+'&q='+ indirizzo.replace(/ /g, '+');
-				console.log($element.children());
-				// $element.css({
-				// 	position:'absolute',
-				// 	bottom:address.getBoundingClientRect().height + address.offsetTop + 'px',
-				// 	width:'300px'
-				// })
-				$element.children()[0].innerHTML = "<iframe width=\"100%\"height=\"100%\" frameborder=\"0\" style=\"border:0\"src=\""+finalurl+"\"></iframe>";
+				finalurl = baseurl+apikey+'&q='+ indirizzo.replace(/ /g, '+');
+				$element.children('.map')[0].innerHTML = "<iframe width=\"100%\"height=\"100%\" frameborder=\"0\" style=\"border:0\"src=\""+finalurl+"\"></iframe>";
 			})
 		}
 	}

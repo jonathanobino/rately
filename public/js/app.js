@@ -3,9 +3,7 @@
 
 	.config(function($stateProvider,ezfbProvider,$urlRouterProvider){
 
-
 		$stateProvider
-
 		.state('home', {
 				url:'/',
 				templateUrl : 'pages/default.html',
@@ -20,17 +18,14 @@
 			url:'/insert',
 			templateUrl : 'pages/insert.html',
 			controller: 'insertNew'
-
 		});
 
 		$urlRouterProvider.otherwise('/');
-
 
 		ezfbProvider.setInitParams({
 			appId:'650646235070285',
 			version:'v2.3'
 		});
-
 
 	})
 	.run(function(ezfb){
@@ -43,28 +38,20 @@
 		 $scope.show = false;
 		 $scope.notfound=false;
 		 $scope.search = function(query){
-		 	console.log("query");
 		 	if(query != ''){
-		 		$back.search(query).then(function(response,err){
+		 		$back.search(query).then(function(response){
 		 		$scope.data = response.data;
-		 		console.log($scope.data);
 		 	})}
 		 	else{
 		 		$scope.data = [];
 		 	}
-		 	
 		 }
 
 		 $scope.mostra= function(){
 		 	$scope.show = !$scope.show;
 		 }
 
-		 
 		 $scope.showItem=null;
-
-		
-		 
-		
 	})
 
 	.controller('insertNew',function($scope,$back,$state){
@@ -111,8 +98,8 @@
 		}
 
 		$scope.params = $stateParams;
-		$back.getCompany($scope.params.id).
-			then(function(response){
+		$back.getCompany($scope.params.id)
+		.then(function(response){
 				$scope.aziendaView = response.data;
 				console.log(response)
 			});
@@ -151,7 +138,4 @@
 			})
 		}
 	})
-	
-
-
 })();

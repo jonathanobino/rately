@@ -25,7 +25,7 @@ AngularJS + Facebook JavaScript SDK.
 
 Include the angular-easyfb module with AngularJS script in your page.
 ```html
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script src="http://pc035860.github.io/angular-easyfb/angular-easyfb.min.js"></script>
 ```
 
@@ -126,8 +126,8 @@ function ($window,   $document,   ezfbAsyncInit,   ezfbLocale) {
     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
     if (d.getElementById(id)) {return;}
     js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/" + ezfbLocale + "/all.js";
-    // js.src = "//connect.facebook.net/" + ezfbLocale + "/all/debug.js";  // debug
+    js.src = "//connect.facebook.net/" + ezfbLocale + "/sdk.js";
+    // js.src = "//connect.facebook.net/" + ezfbLocale + "/sdk/debug.js";  // debug
     ref.parentNode.insertBefore(js, ref);
   }($document[0]));
 
@@ -240,7 +240,7 @@ Additionally, you can add an `onrender` parameter to the social plugin directive
   data-share="true"></div>
 ```
 
-[Demo (directives demostration)](http://plnkr.co/edit/1c5cWB?p=preview)
+[Demo (directives demonstration)](http://plnkr.co/edit/1c5cWB?p=preview)
 
 [Demo2 (interpolated attributes)](http://plnkr.co/edit/gFM1LV?p=preview)
 

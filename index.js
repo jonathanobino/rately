@@ -40,7 +40,7 @@ app.post('/api/:id', api.comment);
 app.post('/api', api.insert);
 
 
-var server = app.listen(app.get('port'), function () {
+var server = app.listen(app.get('port'), () => {
 
   var host = server.address().address;
   var port = server.address().port;

@@ -26,21 +26,44 @@ a{
 	background: linear-gradient(right top, coral, royalblue);
 	margin-top: -1px;
 	padding-top: 1px;
-}
-
-// *{
-// 	transition: all .5s;
-// }
-
-.map{
 	position: relative;
-	top:-250px;
-	width: 600px;
-	height: 300px;
-	left:calc( 50% - 300px);
-	z-index: 999;
-	border:3px solid tomato;
 }
+
+
+.hideMap{
+	position: absolute;
+	top: -500px;
+	transition: .5s all;
+	opacity: 0;
+	width: 100vw;
+	min-height: 50vh;
+    max-height: 60vh;
+    background: rgba(255,255,255,0.7);
+
+	&.show{
+		top: 0px;
+		opacity: 1;
+	}
+	.close{
+		display: block;
+		position: absolute;
+		z-index: 999;
+		color: rgba(0,0,0,0.5);
+		&:hover{
+			color: rgba(0,0,0,0.8);
+		}
+	}
+	.map{
+		position: absolute;
+		width: 600px;
+		height: 300px;
+		left: calc( 50% - 300px);
+		top: calc( 50% - 150px);
+		z-index: 999;
+		box-sizing: content-box;
+	}
+}
+
 .nascondi{
 	position: absolute;
 	top: -1500px;
@@ -52,7 +75,6 @@ a{
 
 	&.show{
 		top: 0px;
-		display: block;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -61,8 +83,6 @@ a{
 		background-color: rgba(255, 255, 255, 1);
 		z-index: 999;
 		opacity: 1;
-		
-
 
 		.row .columns{
 			transition: 1s transform, 1s opacity;
@@ -96,8 +116,6 @@ a{
 		margin-bottom: 20px;
 		padding: 0;
 	}
-
-	
 
 	p{
 		font-size: 1.2rem;
@@ -149,15 +167,6 @@ a{
 			background: white;
 			border: 2px solid deepskyblue;
 		}
-
-		// &.ng-hide-add-active,
-		// &.ng-hide-add{
-		// 	opacity: 1;
-		// }
-
-		// &.ng-hide{
-		// 	opacity: 0;
-		// }
 	}
 
 
@@ -207,8 +216,6 @@ form{
 }
 
 
-
-
 .full{
 	width: 100vw;
 	min-height: 60vh;
@@ -217,7 +224,7 @@ form{
 	clear: both;
 	margin-top: -1px;
 	padding-top: 1px;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 	&.insert{
 		min-height: 40vh;
 		margin-bottom: 40px;
@@ -260,7 +267,6 @@ form{
 }
 
 .search .submit-border-home{
-	/*color: deepskyblue !important;*/
 	background: deepskyblue !important;
 }
 
@@ -273,14 +279,11 @@ form{
 	left: -20px;
 }
 
-
-
 .row.search:first-of-type{
 	padding-top: 50px;
 }
 
 .row.search{
-	// min-height: 300px;
 	min-height: 38vh;
 }
 
@@ -392,7 +395,6 @@ p small{
 		margin-top: -10px;
 	}
 }
-
 
 
 .center{

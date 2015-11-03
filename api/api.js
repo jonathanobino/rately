@@ -31,7 +31,6 @@ api.getId = (req,res) =>{
 }
 api.comment = (req,res) =>{
 
-	console.log("comment api");
 	Company.findOne({_id:req.params.id}).
 	exec((err,cmp) =>{
 		cmp.comments.push(req.body);
