@@ -27,8 +27,6 @@ app.use(function(req,res,next){
 
 app.use('/', express.static(__dirname+'/public'));
 
-app.get('/api/all', api.all);
-
 app.get('/api/:id', api.getId);
 
 app.post('/api/search', api.search);

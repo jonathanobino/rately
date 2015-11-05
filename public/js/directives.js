@@ -15,8 +15,6 @@ directives.directive("review",function(){
 				scope.sended = false;
 
 				scope.click= function(){
-					console.log('clikked');
-					console.log(scope.rev._id);
 					scope.report({value:scope.rev._id});
 					scope.hover = false;
 					scope.sended = true;
