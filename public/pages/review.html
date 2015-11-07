@@ -1,7 +1,7 @@
 <div class="gradient-bkg full-scroll">
 	<section class="review-head"><a ui-sref="home"><h1 class="main-title little" >Rate My Customer</h1></a>
 		<h1 class="company-name">{{aziendaView.name}}</h1>
-		<div class="centered"><stars points="{{aziendaView.media}}"></stars></div>
+		<div class="centered"><stars points="{{::aziendaView.media}}"></stars></div>
 		<p class="center"><span class="fa fa-home"></span><small id="address" ng-click="showMap = !showMap">{{aziendaView.address}}</small></p>
 		<div class="hideMap" ng-class="{'show':showMap}"><div class="close" ng-click="showMap = !showMap">&times</div><map address="aziendaView.address"></map>
 		</div>

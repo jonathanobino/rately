@@ -44,30 +44,23 @@ directives.directive('stars', function(){
 			points:'@'
 		},
 		link: function(scope,elem,attr){
-			scope.rating = scope.ngModel || scope.points;
-			if(attr.ngModel){
-				scope.clickable = true;
-			}
-			else scope.clickable = false;
-		},
-		controller: function($scope,$element,$attrs){
-
-			$scope.rating = $scope.ngModel || $scope.points;
-			$scope.$watch('points',function(){
-				$scope.rating = $scope.points;
+			scope.$watch('points',function(){
+				scope.rating = scope.ngModel || scope.points;
 			})
-			console.log($scope.rating);
-
-			if($scope.clickable){
-				$scope.rating = $scope.ngModel;
-			}
-
-			$scope.rate = function(point){
-				if($scope.clickable) {
-					$scope.rating = point;
-					$scope.ngModel = $scope.rating;
+			scope.rate = function(point){
+				if(scope.clickable) {
+					scope.rating = point;
+					scope.ngModel = point;
 				}
 			}
+		},
+		controller: function($scope,$element,$attrs){
+			if($attrs.ngModel){
+				$scope.clickable = true;
+			}
+			else $scope.clickable = false;
+
+			$scope.rating = $scope.ngModel || $scope.points;
 		}
 	}
 })
