@@ -36,9 +36,13 @@ api.search = (req,res) => {
 api.report = (req,res) => {
 	var comment_id = req.body.id;
 	var customer = req.body.by;
-	return Report.newReport(comment_id,customer)
-	.then( response => res.send(response))
-	.catch( err => res.status(500).send(err));
+	Report.newReport(comment_id,customer)
+	.then( response => {
+		console.log(response);
+		res.send(response);})
+	.catch( err => {
+		console.log(err);
+		res.status(500).send(err);});
 }
 
 module.exports = api ;
