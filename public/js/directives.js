@@ -94,7 +94,9 @@ directives.directive('customTextArea',function(){
 		scope:{
 			placeholder:"@",
 			ngModel:"=",
-			rows:"@"
+			rows:"@",
+			fontSize:"@",
+			fontFamily:"@"
 		},
 		controller:function($scope,$element,$attrs){
 			$scope.placeholder = $scope.placeholder || '';
@@ -103,11 +105,26 @@ directives.directive('customTextArea',function(){
 		link:function(scope,element,attrs){
 			scope.text = scope.ngModel;
 			scope.ngModel = scope.text;
+			var calclulateFontWidth = function(){
+				$('body').append('<span id="calculateTextSize">ABCDFGHIJKLMOPQRSTUVZabcdfghijklmopqrstuvz</span>');
+				$('#calculateTextSize').css({
+					fontSize:scope.fontSize,
+					fontFamily:scope.fontFamily
+				});
+				var innerWidth = $('#calculateTextSize').innerWidth();
+				$('#calculateTextSize').remove();
+				return Math.ceil(innerWidth/42);
+			}();
 			var textarea = element.find('textarea');
+			var characterPerLine = Math.floor(textarea.innerWidth()/ calclulateFontWidth);
+			$(window).on('resize',function(){
+				characterPerLine = Math.floor(textarea.innerWidth()/ calclulateFontWidth);
+			})
+			
 			scope.$watch('text',function(){
-				scope.ngModel = scope.text;
+				scope.ngModel = scope.text = scope.text || '';
 				var text = scope.text;
-				scope.rows = Math.ceil(text.split('').length / 19) === 0 ? 1 : Math.ceil(text.split('').length / 19);
+				scope.rows = Math.ceil(text.split('').length / characterPerLine) === 0 ? 1 : Math.ceil(text.split('').length / characterPerLine);
 			})
 		}
 
