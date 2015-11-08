@@ -86,3 +86,30 @@ directives.directive('map',function(){
 		}
 	}
 })
+
+directives.directive('customTextArea',function(){
+	return {
+		restrict:"E",
+		template:"<textarea rows={{rows}} placeholder={{placeholder}} ng-model='text' class='custom bkg-white'></textarea>",
+		scope:{
+			placeholder:"@",
+			ngModel:"=",
+			rows:"@"
+		},
+		controller:function($scope,$element,$attrs){
+			$scope.placeholder = $scope.placeholder || '';
+			$scope.rows = $scope.rows || 1;
+		},
+		link:function(scope,element,attrs){
+			scope.text = scope.ngModel;
+			scope.ngModel = scope.text;
+			var textarea = element.find('textarea');
+			scope.$watch('text',function(){
+				scope.ngModel = scope.text;
+				var text = scope.text;
+				scope.rows = Math.ceil(text.split('').length / 19) === 0 ? 1 : Math.ceil(text.split('').length / 19);
+			})
+		}
+
+	}
+})

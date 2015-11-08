@@ -252,6 +252,26 @@ form{
     height: 5rem !important;
 }
 
+textarea.custom{
+		width: 100% !important;
+		font-size: 3rem !important;
+		font-weight: 200 !important;
+		font-family: sans-serif  !important;
+		margin: auto !important;
+		display: block !important;
+		color:black !important;
+		background-color: transparent  !important;
+		border: 0px  !important; 
+		border-bottom: 1px solid white  !important;
+		padding:10px 20px 20px !important;
+		box-sizing:border-box !important;
+		box-shadow: none !important;
+		margin: 0 auto !important;
+		-webkit-appearance: none !important;
+	    -webkit-border-radius:0 !important;
+	    resize: none !important; 
+}
+
 .search .input-main{
 	font-size: 1.2rem !important;
 	width: 90% !important;
