@@ -23,7 +23,7 @@
 <stars ng-model="newReview.rating"></stars>
 <div class="close" ng-click="showInsertReview = false">&times;</div>
 <input type="text" class="input-main input-insert bkg-white" placeholder="Project" ng-model="newReview.project">
-<input type="text" class="input-main input-insert bkg-white" placeholder="Link" ng-model="newReview.address">
+<input type="text" class="input-main input-insert bkg-white" placeholder="Link" ng-model="newReview.address" ng-pattern="/([http]|[https])+([:\/\/])+([www\.])?([a-zA-Z0-9\-])+([\.])+([a-zA-])+(\/)?/">
 <custom-text-area placeholder="Review" ng-model="newReview.text" font-size="3rem" font-family="sans-serif"></custom-text-area>
 
 
